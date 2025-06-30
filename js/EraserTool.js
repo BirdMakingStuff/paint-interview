@@ -8,6 +8,7 @@ export class EraserTool {
    */
   constructor(canvas) {
     this.canvas = canvas;
+    this.size = 5;
   }
 
   startDrawing(e) {
@@ -18,9 +19,19 @@ export class EraserTool {
 
   draw(e) {
     const pos = this.canvas.getMousePos(e);
+    this.canvas.ctx.lineWidth = this.size;
     this.canvas.ctx.lineWidth = 30;
     this.canvas.ctx.strokeStyle = "#ffffff";
     this.canvas.ctx.lineTo(pos.x, pos.y);
     this.canvas.ctx.stroke();
   }
+
+  setSize(size) {
+    this.size = size;
+  }
+
+  getSize() {
+    return this.size;
+  }
+  
 }

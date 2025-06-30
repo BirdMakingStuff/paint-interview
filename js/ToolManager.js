@@ -64,6 +64,8 @@ export class ToolManager {
 
   setActiveTool(toolName) {
     const tool = this.tools.find((t) => t.name === toolName);
+    const brushSizeInput = document.getElementById("brush-size");
+    const brushColorInput = document.getElementById("brush-color");
 
     this.toolbarElement.querySelectorAll(".tool-button").forEach((btn) => {
       btn.classList.remove("active");
@@ -74,6 +76,20 @@ export class ToolManager {
     );
     if (activeButton) {
       activeButton.classList.add("active");
+    }
+
+    if (tool.instance.getSize) {
+      brushSizeInput.disabled = false;
+      brushSizeInput.value = tool.instance.getSize();
+    } else {
+      brushSizeInput.disabled = true;
+    }
+
+    if (tool.instance.setColor) {
+      brushColorInput.disabled = false;
+      /// brushColorInput.value = tool.instance.getColor ? tool.instance.getColor() : "#000000";
+    } else {
+      brushColorInput.disabled = true;
     }
 
     this.currentTool = tool.instance;

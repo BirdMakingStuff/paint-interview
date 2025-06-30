@@ -15,20 +15,19 @@
         <div class="tools-container"></div>
       </div>
 
+      <div>
+        <input type="range" id="brush-size" min="1" max="100" value="5" />
+        <label for="brush-size">Brush Size</label>
+        <input type="color" id="brush-color" name="head" value="#e66465" />
+        <label for="brush-color">Brush Colour</label>
+      </div>
+
       <div class="canvas-container">
         <canvas id="canvas" width="800" height="600"></canvas>
       </div>
 
-      <div class="instructions">
-        <h2>Interview Task</h2>
-        <p>
-          This is a basic drawing canvas. Your task is to extend this
-          application with additional features.
-        </p>
-        <ul>
-          <li>Currently supports: Drawing with a black marker</li>
-          <li>Draw by clicking and dragging on the canvas</li>
-        </ul>
+      <div>
+        <button id="erase-canvas">Erase Canvas</button>
       </div>
     </div>
 
